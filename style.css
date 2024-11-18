@@ -8,6 +8,7 @@
     text-decoration: none;
 }
 
+
 .container {
     display: flex;
     flex-direction: column;
@@ -23,6 +24,7 @@
     align-items: center;
 }
 
+
 header {
     display: flex;
     justify-content: space-between;
@@ -33,6 +35,7 @@ header {
     padding: 0px 150px;
 }
 
+
 section {
     height: auto;
     width: 100%;
@@ -41,7 +44,6 @@ section {
     gap: 30px;
     align-items: center;
     color: white;
-
 }
 
 section h2 {
@@ -50,10 +52,27 @@ section h2 {
     margin-bottom: 5px;
 }
 
+
+/* .splide__slide {
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.splide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.splide__slide img:hover {
+    transform: scale(1.05);
+} */
+
 section li img {
     width: 100%;
     height: 100%;
-
 }
 
 .s3List {
@@ -77,12 +96,12 @@ section li img {
     font-size: 0.8em;
     padding: 3px 7px;
     border-radius: 3px;
-
 }
 
-.s3List li a:hover {
+.s3List li a:hover{
     color: #CC0000;
 }
+
 
 footer {
     width: 100%;
@@ -99,14 +118,15 @@ footer p {
     font-size: 0.6rem;
 }
 
+
 .logo span {
     color: #CC0000;
-
 }
 
 .logo h2 {
     color: white;
 }
+
 
 .menu {
     display: flex;
@@ -122,6 +142,7 @@ footer p {
     color: #CC0000;
 }
 
+
 .search button {
     color: white;
     padding: 6px 10px;
@@ -130,12 +151,12 @@ footer p {
     border-radius: 2px;
     margin-left: -5px;
     cursor: pointer;
-
 }
 
 .search input {
     height: 30px;
 }
+
 
 .modalSign {
     display: none;
@@ -150,7 +171,8 @@ footer p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
+    width: 350px;
+    height: 600px;
     background-color: black;
     z-index: 1000;
     color: white;
@@ -158,6 +180,7 @@ footer p {
 
 .signContainer {
     padding: 35px;
+
 }
 
 .modalSign .buttons {
@@ -170,7 +193,6 @@ footer p {
 
 .buttons {
     display: flex;
-
 }
 
 .modalSign .content {
@@ -202,6 +224,7 @@ footer p {
     font-weight: 100;
 }
 
+
 .sign,
 .log {
     width: 200px;
@@ -220,7 +243,6 @@ footer p {
     border-bottom-left-radius: 3px;
     border: 1px solid;
     border-right: none;
-
 }
 
 .log {
@@ -240,6 +262,7 @@ footer p {
     letter-spacing: 1px;
     font-size: 0.7rem;
 }
+
 
 .modalFilm {
     display: none;
@@ -272,12 +295,19 @@ footer p {
     height: 35vh;
 }
 
+.filmImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .filmContent {
     padding: 20px;
     width: 400px;
     height: 50vh;
     background-color: yellow;
 }
+
 
 .closer {
     padding: 1px 3px;
@@ -286,7 +316,6 @@ footer p {
     border-radius: 50%;
     background-color: black;
     color: white;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    
 }
+
