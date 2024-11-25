@@ -22,10 +22,14 @@ const container2 = document.querySelector("#splide1 .splide__list");
 const container3 = document.querySelector("#splide2 .splide__list");
 const modalSign = document.querySelector(".modalSign");
 const modalFilm = document.querySelector(".modalFilm");
+const filmImg = document.querySelector(".modalFilm .filmImg");
 const filmContent = document.querySelector(".filmContent");
 const signInBtn = document.querySelector(".menu li:nth-child(5) a");
 const allClosers = document.querySelectorAll(".closer");
 const genreList = document.querySelector(".s3List");
+
+const carouselPrevArrow = document.querySelector("#splide .splide__arrow--prev");
+const carouselNextArrow = document.querySelector("#splide .splide__arrow--next");
 
 // Liste des genres prédéfinis
 const genres = {
@@ -43,18 +47,18 @@ signInBtn.addEventListener("click", (e) => {
     modalSign.classList.add("active");
 });
 
-const loginBtn = document.querySelector('.modalSign .content button');
-loginBtn.addEventListener('click', () => {
-    // Récupérer les valeurs des champs de formulaire
-    const username = document.querySelector('.modalSign #user').value;
-    const password = document.querySelector('.modalSign #pass').value;
+// const loginBtn = document.querySelector('.modalSign .content button');
+// loginBtn.addEventListener('click', () => {
+//     // Récupérer les valeurs des champs de formulaire
+//     const username = document.querySelector('.modalSign #user').value;
+//     const password = document.querySelector('.modalSign #pass').value;
 
-    // Ajouter ici votre logique de connexion
-    console.log('Tentative de connexion avec:', username, password);
+//     // Ajouter ici votre logique de connexion
+//     console.log('Tentative de connexion avec:', username, password);
 
-    // Fermer le pop-up après la connexion réussie
-    modalSign.classList.remove('active');
-});
+//     // Fermer le pop-up après la connexion réussie
+//     modalSign.classList.remove('active');   <p> (`${BASE_URL}/movie/${movie.id}/credits`, { headers })</p>
+// });
 
 allClosers.forEach(closer => {
     closer.addEventListener("click", () => {
@@ -65,17 +69,52 @@ allClosers.forEach(closer => {
 
 
 // Fonction popup film
-const showMoviePopup = (movie) => {
+const showMoviePopup = async (movie) => {
     filmContent.innerHTML = `
         <div class="movie-details">
             <h2>${movie.title || movie.original_title}</h2>
             <p><strong>Date de sortie :</strong> ${movie.release_date || 'Non disponible'}</p>
             <p><strong>Note :</strong> ${movie.vote_average} / 10</p>
             <p><strong>Synopsis :</strong> ${movie.overview || 'Aucune description disponible.'}</p>
+
         </div>
     `;
-    modalFilm.classList.add("active");
+    
+
+
+const movieImage = document.createElement("img");
+movieImage.src = `${IMAGE_BASE_URL}${movie.poster_path}`;
+movieImage.alt = movie.title || movie.original_title;
+
+filmImg.innerHTML="";
+filmImg.appendChild(movieImage);
+
+
+try{
+
+    const castRes = await fetch(`${BASE_URL}/movie/${movie.id}/credits`, {headers});
+    const castData = await castRes.json();
+    
+    const casting = document.createElement('div')
+    casting.innerHTML= `
+        <h3>Casting</h3>
+        <ul>
+        ${castData.cast.slice(0,5).map(actor =>`<li>${actor.name}</li>`).join("")}
+        </ul>
+    `;
+    
+    filmContent.appendChild(casting);
+    } catch (error){
+        console.error("une erreur")
+        };
+
+        modalFilm.classList.add("active");
+
 };
+
+
+
+
 
 // Création élément film
 const createMovieElement = (movie) => {
@@ -83,9 +122,10 @@ const createMovieElement = (movie) => {
 
     const list = document.createElement("li");
     list.className = "splide__slide";
-    list.style.height = "300px";
+    list.style.height = "280px";
     list.style.overflow = "hidden";
-    list.style.margin = "0 auto";
+    list.style.margin = "0 1rem"; 
+    
 
     const img = document.createElement("img");
     img.src = `${IMAGE_BASE_URL}${movie.poster_path}`;
@@ -109,6 +149,8 @@ const createMovieElement = (movie) => {
     
     return list;
 };
+
+
 
 // Affichage des films
 const displayMovies = (movies, container, sliderId) => {
