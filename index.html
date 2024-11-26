@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
-    <script src="app.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+   
     <title>Document</title>
 </head>
 
@@ -27,7 +27,10 @@
                     <li><a href="">LATEST</a></li>
                     <li><a href="">GENRES</a></li>
                     <li><a href="">REGISTER</a></li>
-                    <li><a href="">SIGNIN</a></li>
+                    <li><a href="">SIGNIN</a></li> 
+
+                    
+
                 </ul>
             </div>
         </header>
@@ -109,18 +112,13 @@
                 <div class="splide__track">
                     <h2>Results for</h2>
                     <ul class="splide__list">
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
+                        <li class="splide__slide"><img src="" alt=""></li>
+                        <li class="splide__slide"><img src="" alt=""></li>   
+                        <li class="splide__slide"><img src="" alt=""></li>
+                        <li class="splide__slide"><img src="" alt=""></li>
+                    
+                        
+                        
                     </ul>
                 </div>
             </section>
@@ -133,18 +131,10 @@
                 <div class="splide__track">
                     <h2>Latest release</h2>
                     <ul class="splide__list">
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
+                        <li class="splide__slide"><img src=""alt=""></li>
+                        <li class="splide__slide"><img src=""alt=""></li>
+                        <li class="splide__slide"><img src=""alt=""></li>
+                        <li class="splide__slide"><img src=""alt=""></li>
                     </ul>
                 </div>
             </section>
@@ -166,18 +156,17 @@
                 </div>
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
-                        <li class="splide__slide"><img
-                                src="https://www.worldatlas.com/r/w1300/upload/a4/91/91/shutterstock-1708408498.jpg"
-                                alt=""></li>
+
+                        <li class="splide__slide"><img src="" alt=""></li>
+                        <li class="splide__slide"><img src="" alt=""></li>   
+                        <li class="splide__slide"><img src="" alt=""></li>
+                        <li class="splide__slide"><img src="" alt=""></li>
+
+                        <li class="splide__slide"><img src=""alt=""></li>
+                        <li class="splide__slide"><img src=""alt=""></li>
+                        <li class="splide__slide"><img src=""alt=""></li>
+                        <li class="splide__slide"><img src=""alt=""></li>
+
                     </ul>
                 </div>
             </section>
@@ -197,7 +186,8 @@
                 <li><a href="">LATEST</a></li>
                 <li><a href="">GENRES</a></li>
                 <li><a href="">REGISTER</a></li>
-                <li><a href="">SIGNIN</a></li>
+                <li><a href="">SIGNIN</a></li> 
+
             </ul>
             <p>@2023 - All rights reserved</p>
         </footer>
@@ -206,26 +196,25 @@
     <!--------------------SCRIPT SPLIDER------------------------------------>
 
 
-    <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="app.js"></script>
     <script>
 
         //Variable qui contient un objet json avec tout les paramattres qui vont bien pour les 3 sliders
         const splideParam = {
-            perPage: 8,
-            fixedHeight: '230px',
-            gap: '10px',
-            pagination: true,
+            perPage: 4,
+            pagination: false,
             type: 'loop',
             snap: true,
             breakpoints: {
                 1440: {
-                    perPage: 6
+                    perPage: 3
                 },
                 1200: {
-                    perPage: 4
+                    perPage: 3
                 },
                 850: {
-                    perPage: 3
+                    perPage: 2
                 },
                 700: {
                     perPage: 2
@@ -238,16 +227,16 @@
         };
 
         //Eventlistener qui verifie que tt le DOM soit bien chargé avant de faire pop les sliders dans les sections avec les paramattres contenu dans la variable au dessus ("splideParam")
-        document.addEventListener('DOMContentLoaded', function () {
-            var splide = new Splide('#splide', splideParam);
-            splide.mount();
-
-            var splide1 = new Splide('#splide1', splideParam);
-            splide1.mount();
-
-            var splide2 = new Splide('#splide2', splideParam);
-            splide2.mount();
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+    // Initialiser les sliders vides
+    new Splide('#splide', splideParam).mount();
+    new Splide('#splide1', splideParam).mount();
+    new Splide('#splide2', splideParam).mount();
+    
+    // Clic automatique sur le premier genre
+    const firstGenreLink = genreList.querySelector('a');
+    if (firstGenreLink) firstGenreLink.click();
+});
     </script>
 </body>
 
