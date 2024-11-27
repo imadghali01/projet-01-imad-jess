@@ -288,7 +288,7 @@ footer p {
     padding: 20px;
     width: 400px;
     height: 50vh;
-    background-color: yellow;
+    overflow: auto;
 }
 
 
@@ -299,6 +299,25 @@ footer p {
     border-radius: 50%;
     background-color: black;
     color: white;
+    position: absolute;
     
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Styles spécifiques pour les écrans tablettes */
+     .body{
+        padding:0px 75px
+    }
+}
+@media (min-width: 200px )and(max-width: 767px) {
+    /* Styles spécifiques pour les écrans mobiles */
+    .body{
+        padding:0px 35px
+    }
+    .menu{
+        flex-direction: column;
+    }
+    .s3menu{
+        flex-direction: column;
+    }
 }
 

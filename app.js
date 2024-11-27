@@ -257,6 +257,17 @@ input.addEventListener("keypress", (e) => {
 
 fetchPopular();
 fetchLatest();
+let wasBelow550 = window.innerWidth <= 550; // Vérifie si la largeur initiale est <= 550px
+
+window.addEventListener('resize', () => {
+    const isBelow550 = window.innerWidth <= 550;
+
+    // Si la condition change (passage sous ou au-dessus de 550px)
+    if (isBelow550 !== wasBelow550) {
+        wasBelow550 = isBelow550; // Met à jour l'état
+        location.reload(); // Recharge la page
+    }
+});
 // Initialisation au chargement
 // document.addEventListener('DOMContentLoaded', () => {
 //     // Initialiser les sliders vides
