@@ -22,6 +22,7 @@ const container2 = document.querySelector("#splide1 .splide__list");
 const container3 = document.querySelector("#splide2 .splide__list");
 const modalSign = document.querySelector(".modalSign");
 const modalFilm = document.querySelector(".modalFilm");
+const filmContainer = document.querySelector('.filmContainer');
 const filmImg = document.querySelector(".modalFilm .filmImg");
 const filmContent = document.querySelector(".filmContent");
 const signInBtn = document.querySelector(".menu li:nth-child(5) a");
@@ -110,7 +111,7 @@ const showMoviePopup = async (movie) => {
 
     modalFilm.classList.add("active");
     if(window.innerWidth < 765){
-        modalFilm.style.flexDirection = 'column';
+        filmContainer.style.flexDirection = 'column';
         modalFilm.style.maxWidth = '200px';
         modalFilm.style.overflowY = 'scroll';
     }

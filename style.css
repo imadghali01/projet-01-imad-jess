@@ -313,13 +313,6 @@ footer p {
     .body{
         padding:0px 35px
     }
-    .filmContainer{
-        flex-direction: column;
-    }
-    .modalFilm.active{
-        width: 200px;
-        overflow-y: scroll;
-    }
 
 }
 
