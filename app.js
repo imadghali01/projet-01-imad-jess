@@ -113,7 +113,7 @@ const showMoviePopup = async (movie) => {
     if(window.innerWidth < 765){
         filmContainer.style.flexDirection = 'column';
         modalFilm.style.maxWidth = '200px';
-        modalFilm.style.overflowY = 'scroll';
+        modalFilm.style.overflowX = 'scroll';
     }
 
 };
