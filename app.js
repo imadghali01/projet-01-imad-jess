@@ -127,6 +127,28 @@ const showMoviePopup = async (movie) => {
 
 
 // Création élément film
+const genreTranslations = {
+    28: "Action",
+    12: "Aventure",
+    16: "Animation",
+    35: "Comédie",
+    80: "Crime",
+    99: "Documentaire",
+    18: "Drame",
+    10751: "Familial",
+    14: "Fantastique",
+    36: "Histoire",
+    27: "Horreur",
+    10402: "Musique",
+    9648: "Mystère",
+    10749: "Romance",
+    878: "Science-Fiction",
+    10770: "Téléfilm",
+    53: "Thriller",
+    10752: "Guerre",
+    37: "Western"
+};
+
 const createMovieElement = (movie) => {
     if (!movie.poster_path) return null;
 
@@ -135,7 +157,6 @@ const createMovieElement = (movie) => {
     list.style.height = "280px";
     list.style.overflow = "hidden";
     list.style.margin = "0 1rem"; 
-    
 
     const img = document.createElement("img");
     img.src = `${IMAGE_BASE_URL}${movie.poster_path}`;
@@ -145,18 +166,69 @@ const createMovieElement = (movie) => {
     img.style.objectFit = "contain";
     img.style.transition = "transform 0.3s ease";
     
-    // Effet hover
-    img.addEventListener("mouseenter", () => {
-        img.style.transform = "scale(1.05)";
+    // Créer une div pour l'affichage des détails du film
+    const movieDetails = document.createElement("div");
+    movieDetails.style.width = "100%";
+    movieDetails.style.height = "100%";
+    movieDetails.style.backgroundColor = "black";
+    movieDetails.style.color = "white";
+    movieDetails.style.display = "flex";
+    movieDetails.style.flexDirection = "column";
+    movieDetails.style.justifyContent = "center";
+    movieDetails.style.alignItems = "center";
+    movieDetails.style.gap = "10px";
+    movieDetails.style.position = "absolute";
+    movieDetails.style.top = "0";
+    movieDetails.style.left = "0";
+    movieDetails.style.right = "0";
+    movieDetails.style.bottom = "0";
+    movieDetails.style.padding = "10px";
+    movieDetails.style.overflow = "auto";
+    movieDetails.style.transition = "opacity 0.3s ease";
+    movieDetails.style.opacity = "0";
+
+    // Ajouter les informations du film dans la div
+    const title = document.createElement("h3");
+    title.textContent = movie.title || movie.original_title;
+    title.style.textAlign = "center";
+
+    const releaseDate = document.createElement("p");
+    releaseDate.textContent = `${movie.release_date}`;
+
+    const genre = document.createElement("p");
+    const translatedGenres = movie.genre_ids.map(id => genreTranslations[id] || "Inconnu").join(", ");
+    genre.textContent = `${translatedGenres}`;
+    const star = document.createElement("h2");
+    star.innerHTML = `&#9733`;
+    star.style.color = "red";
+    const rating = document.createElement("p");
+    rating.textContent = `${movie.vote_average}`;
+    rating.style.color = "red";
+    movieDetails.appendChild(title);
+    movieDetails.appendChild(releaseDate);
+    movieDetails.appendChild(genre);
+    movieDetails.appendChild(star);
+    movieDetails.appendChild(rating);
+
+    // Positionnement relatif du conteneur
+    list.style.position = "relative";
+
+    // Effet hover pour afficher la div au lieu de l'image
+    list.addEventListener("mouseenter", () => {
+        img.style.opacity = "0";
+        movieDetails.style.opacity = "1";
     });
-    
-    img.addEventListener("mouseleave", () => {
-        img.style.transform = "scale(1)";
+
+    list.addEventListener("mouseleave", () => {
+        img.style.opacity = "1";
+        movieDetails.style.opacity = "0";
     });
 
     list.addEventListener("click", () => showMoviePopup(movie));
+
     list.appendChild(img);
-    
+    list.appendChild(movieDetails);
+
     return list;
 };
 
@@ -271,14 +343,27 @@ input.addEventListener("keypress", (e) => {
 
 fetchPopular();
 fetchLatest();
-let wasBelow550 = window.innerWidth <= 550; // Vérifie si la largeur initiale est <= 550px
+let breakpoints = {
+    1440: window.innerWidth <= 1440,
+    1200: window.innerWidth <= 1200,
+    850: window.innerWidth <= 850,
+    700: window.innerWidth <= 700,
+    550: window.innerWidth <= 550
+};
 
 window.addEventListener('resize', () => {
-    const isBelow550 = window.innerWidth <= 550;
+    // Vérifie pour chaque breakpoint si la condition a changé
+    let shouldReload = false;
 
-    // Si la condition change (passage sous ou au-dessus de 550px)
-    if (isBelow550 !== wasBelow550) {
-        wasBelow550 = isBelow550; // Met à jour l'état
+    for (const breakpoint in breakpoints) {
+        const isBelow = window.innerWidth <= breakpoint;
+        if (isBelow !== breakpoints[breakpoint]) {
+            breakpoints[breakpoint] = isBelow; // Met à jour l'état pour ce breakpoint
+            shouldReload = true; // Indique qu'une recharge est nécessaire
+        }
+    }
+
+    if (shouldReload) {
         location.reload(); // Recharge la page
     }
 });
