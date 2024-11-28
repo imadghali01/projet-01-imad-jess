@@ -82,33 +82,38 @@ const showMoviePopup = async (movie) => {
     
 
 
-const movieImage = document.createElement("img");
-movieImage.src = `${IMAGE_BASE_URL}${movie.poster_path}`;
-movieImage.alt = movie.title || movie.original_title;
+    const movieImage = document.createElement("img");
+    movieImage.src = `${IMAGE_BASE_URL}${movie.poster_path}`;
+    movieImage.alt = movie.title || movie.original_title;
 
-filmImg.innerHTML="";
-filmImg.appendChild(movieImage);
+    filmImg.innerHTML="";
+    filmImg.appendChild(movieImage);
 
 
-try{
+    try{
 
-    const castRes = await fetch(`${BASE_URL}/movie/${movie.id}/credits`, {headers});
-    const castData = await castRes.json();
-    
-    const casting = document.createElement('div')
-    casting.innerHTML= `
-        <h3>Casting</h3>
-        <ul>
-        ${castData.cast.slice(0,5).map(actor =>`<li>${actor.name}</li>`).join("")}
-        </ul>
-    `;
-    
-    filmContent.appendChild(casting);
-    } catch (error){
+        const castRes = await fetch(`${BASE_URL}/movie/${movie.id}/credits`, {headers});
+        const castData = await castRes.json();
+        
+        const casting = document.createElement('div')
+        casting.innerHTML= `
+            <h3>Casting</h3>
+            <ul>
+            ${castData.cast.slice(0,5).map(actor =>`<li>${actor.name}</li>`).join("")}
+            </ul>`;
+        
+        filmContent.appendChild(casting);
+    } 
+    catch (error){
         console.error("une erreur")
-        };
+    };
 
-        modalFilm.classList.add("active");
+    modalFilm.classList.add("active");
+    if(window.innerWidth < 765){
+        modalFilm.style.flexDirection = 'column';
+        modalFilm.style.maxWidth = '200px';
+        modalFilm.style.overflowY = 'scroll';
+    }
 
 };
 
@@ -179,7 +184,8 @@ const fetchSearch = async (query) => {
         
         searchTitle.textContent = `Résultats pour : ${query}`;
         displayMovies(data.results, container1, 'splide');
-    } catch (error) {
+    } 
+    catch (error) {
         console.error("Erreur lors de la recherche:", error);
     }
 };
@@ -194,7 +200,8 @@ const fetchPopular = async () => {
         const data = await response.json();
         searchTitle.textContent = "Films populaires";
         displayMovies(data.results, container1, 'splide');
-    } catch (error) {
+    } 
+    catch (error) {
         console.error("Erreur lors du chargement des films populaires:", error);
     }
 };
@@ -208,7 +215,8 @@ const fetchLatest = async () => {
         );
         const data = await response.json();
         displayMovies(data.results, container2, 'splide1');
-    } catch (error) {
+    } 
+    catch (error) {
         console.error("Erreur lors du chargement des derniers films:", error);
     }
 };
@@ -222,7 +230,8 @@ const fetchByGenre = async (genreId) => {
         );
         const data = await response.json();
         displayMovies(data.results, container3, 'splide2');
-    } catch (error) {
+    } 
+    catch (error) {
         console.error("Erreur lors du chargement des films par genre:", error);
     }
 };
