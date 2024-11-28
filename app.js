@@ -232,8 +232,6 @@ const createMovieElement = (movie) => {
     return list;
 };
 
-
-
 // Affichage des films
 const displayMovies = (movies, container, sliderId) => {
     container.innerHTML = "";
