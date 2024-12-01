@@ -76,7 +76,7 @@ const showMoviePopup = async (movie) => {
             <h2 class="popTitle">${movie.title || movie.original_title}</h2>
             <p>${movie.release_date || 'Non disponible'}</p>
             <p class="popNote"><strong>&#9733</strong> ${movie.vote_average} / 10</p>
-            <p>${movie.overview || 'Aucune description disponible.'}</p>
+            <p class="popOverv">${movie.overview || 'Aucune description disponible.'}</p>
 
         </div>
     `;
@@ -96,10 +96,12 @@ const showMoviePopup = async (movie) => {
         
         const casting = document.createElement('div')
         casting.innerHTML= `
-            <h3>Casting</h3>
-            <ul>
-            ${castData.cast.slice(0,5).map(actor =>`<li>${actor.name}</li>`).join("")}
-            </ul>`;
+            <div class="popCast">
+                <h3 class="popCastTitle">CAST:</h3>
+                <ul class="popCastList">
+                ${castData.cast.slice(0,5).map(actor =>`<li>${actor.name}, </li>`).join("")}
+                </ul>
+            </div>`;
         
         filmContent.appendChild(casting);
     } 
