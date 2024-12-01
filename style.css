@@ -276,7 +276,7 @@ footer p {
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
-    height: 500px;
+    height: auto;
     z-index: 1000;
     color: white;
 }
@@ -288,7 +288,6 @@ footer p {
 }
 
 .filmImg {
-    background-color: blue;
     width: 200px;
     height: auto;
     margin-left: 70px;
@@ -354,6 +353,7 @@ footer p {
     .body {
         padding: 0px 75px;
     }
+    
 }
 
 @media (min-width: 200px) and (max-width: 767px) {
