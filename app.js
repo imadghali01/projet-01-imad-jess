@@ -73,15 +73,13 @@ allClosers.forEach(closer => {
 const showMoviePopup = async (movie) => {
     filmContent.innerHTML = `
         <div class="movie-details">
-            <h2>${movie.title || movie.original_title}</h2>
-            <p><strong>Date de sortie :</strong> ${movie.release_date || 'Non disponible'}</p>
-            <p><strong>Note :</strong> ${movie.vote_average} / 10</p>
-            <p><strong>Synopsis :</strong> ${movie.overview || 'Aucune description disponible.'}</p>
+            <h2 class="popTitle">${movie.title || movie.original_title}</h2>
+            <p>${movie.release_date || 'Non disponible'}</p>
+            <p class="popNote"><strong>&#9733</strong> ${movie.vote_average} / 10</p>
+            <p>${movie.overview || 'Aucune description disponible.'}</p>
 
         </div>
     `;
-    
-
 
     const movieImage = document.createElement("img");
     movieImage.src = `${IMAGE_BASE_URL}${movie.poster_path}`;
@@ -200,10 +198,14 @@ const createMovieElement = (movie) => {
     genre.textContent = `${translatedGenres}`;
     const star = document.createElement("h2");
     star.innerHTML = `&#9733`;
+    star.style.fontSize = '2.5rem';
     star.style.color = "red";
     const rating = document.createElement("p");
     rating.textContent = `${movie.vote_average}`;
     rating.style.color = "red";
+    rating.style.marginTop = '-20px';
+    rating.style.fontSize = '1.5rem';
+
     movieDetails.appendChild(title);
     movieDetails.appendChild(releaseDate);
     movieDetails.appendChild(genre);

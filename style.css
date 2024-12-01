@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    font-family: "Inria Sans", serif;
 }
-
 
 .container {
     display: flex;
@@ -24,34 +24,34 @@
     align-items: center;
 }
 
-
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 60px;
+    height: 100px;
     background: #141517;
     padding: 0px 150px;
 }
-
 
 section {
     height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
     align-items: center;
     color: white;
 }
+#splide2{
+    margin-bottom: 80px;
+}
 
 section h2 {
-    font-size: 0.8em;
+    font-size: 1em;
     font-weight: 300;
     margin-bottom: 10px;
 }
-
 
 section li img {
     width: 254px;
@@ -61,34 +61,38 @@ section li img {
 .s3List {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
     position: relative;
 }
 
 .s3List::after {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: -25px;
     height: 1px;
-    width: 475px;
+    width: 685px;
     background-color: white;
 }
 
 .s3List li a {
     color: white;
-    font-size: 0.8em;
+    font-size: 1.2em;
     padding: 3px 7px;
     border-radius: 3px;
+    letter-spacing: 1px;
 }
 
-.s3List li a:hover{
-    color: #CC0000;
+.s3List li a:hover {
+    color: white;
+    width: auto;
+    padding: 7px 12px;
+    background-color: #CC0000;
+    border-radius: 10px;
 }
-
 
 footer {
     width: 100%;
-    height: 120px;
+    height: 200px;
     padding: 0px 150px;
     background: #141517;
     display: flex;
@@ -98,9 +102,12 @@ footer {
 
 footer p {
     color: grey;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
 }
 
+.logo {
+    font-size: 1.4em;
+}
 
 .logo span {
     color: #CC0000;
@@ -110,11 +117,10 @@ footer p {
     color: white;
 }
 
-
 .menu {
     display: flex;
-    gap: 20px;
-    font-size: 0.6rem;
+    gap: 30px;
+    font-size: 0.8rem;
 }
 
 .menu a {
@@ -125,27 +131,33 @@ footer p {
     color: #CC0000;
 }
 
-
 .search button {
     color: white;
-    padding: 6px 10px;
+    padding: 12px 15px;
     background: #CC0000;
     border: none;
     border-radius: 2px;
     margin-left: -5px;
     cursor: pointer;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .search input {
-    height: 30px;
+    height: 40px;
+    width: 220px;
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding-left: 10px;
+    margin-top: 10px;
 }
-
 
 .modalSign {
     display: none;
 }
 
-.modalSign.active{
+.modalSign.active {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -155,7 +167,7 @@ footer p {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 350px;
-    height: 400px;
+    height: 530px;
     background-color: black;
     z-index: 1000;
     color: white;
@@ -163,7 +175,6 @@ footer p {
 
 .signContainer {
     padding: 35px;
-
 }
 
 .modalSign .buttons {
@@ -181,7 +192,7 @@ footer p {
 .modalSign .content {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 22.5px; /* Gap initial 15px * 1.5 */
     margin-bottom: 20px;
 }
 
@@ -192,38 +203,41 @@ footer p {
 .forgotSign {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    font-size: 0.7rem;
+    gap: 25px; /* Gap initial 10px * 1.5 */
+    font-size: 0.9rem;
+    margin-top: 30px;
 }
 
 #user,
 #pass {
-    height: 25px;
+    height: 37px;
+    border-radius: 5px;
+    padding-left: 12px;
 }
 
 .check {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     margin-bottom: 20px;
     font-weight: 100;
 }
 
-
 .sign,
 .log {
     width: 200px;
-    height: 25px;
+    height: 45px; /* Hauteur initiale 25px * 1.5 */
     border-radius: 0px;
-    font-size: 0.6rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 500;
     letter-spacing: 1.5px;
     cursor: pointer;
+    
 }
 
 .sign {
     background-color: black;
     color: white;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     border: 1px solid;
     border-right: none;
 }
@@ -232,20 +246,21 @@ footer p {
     background-color: #CC0000;
     border: none;
     color: white;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .content button {
-    height: 25px;
+    height: 37.5px; /* Hauteur initiale 25px * 1.5 */
     background-color: #CC0000;
     color: white;
     border: none;
     border-radius: 3px;
     letter-spacing: 1px;
-    font-size: 0.7rem;
+    font-size: 1rem;
+    padding-top: 6px; /* Padding vertical initial augmenté par 1.5 */
+    padding-bottom: 6px;
 }
-
 
 .modalFilm {
     display: none;
@@ -254,14 +269,14 @@ footer p {
 .modalFilm.active {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 30px;
+    padding: 10px 10px;
     position: fixed;
     background-color: black;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
+    height: 500px;
     z-index: 1000;
     color: white;
 }
@@ -275,22 +290,29 @@ footer p {
 .filmImg {
     background-color: blue;
     width: 200px;
-    height: 35vh;
+    height: auto;
+    margin-left: 50px;
 }
 
 .filmImg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: 1px solid white;
 }
 
 .filmContent {
     padding: 20px;
     width: 400px;
-    height: 50vh;
+    height: 37vh;
     overflow: auto;
 }
-
+.popNote, .popTitle{
+    color: red;
+}
+.popNote{
+    font-size: 1.5rem;
+}
 
 .closer {
     padding: 1px 3px;
@@ -300,19 +322,18 @@ footer p {
     background-color: black;
     color: white;
     position: absolute;
-    
 }
+
 @media (min-width: 768px) and (max-width: 1024px) {
     /* Styles spécifiques pour les écrans tablettes */
-     .body{
-        padding:0px 75px
+    .body {
+        padding: 0px 75px;
     }
 }
-@media (min-width: 200px )and(max-width: 767px) {
+
+@media (min-width: 200px) and (max-width: 767px) {
     /* Styles spécifiques pour les écrans mobiles */
-    .body{
-        padding:0px 35px
+    .body {
+        padding: 0px 35px;
     }
-
 }
-
