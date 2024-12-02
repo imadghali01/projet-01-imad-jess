@@ -285,6 +285,7 @@ footer p {
     display: flex;
     align-items: center;
     gap: 30px;
+    padding: 50px;
 }
 
 .filmImg {
@@ -353,6 +354,7 @@ footer p {
     .body {
         padding: 0px 75px;
     }
+    
     
 }
 

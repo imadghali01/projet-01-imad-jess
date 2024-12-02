@@ -112,11 +112,10 @@ const showMoviePopup = async (movie) => {
     modalFilm.classList.add("active");
     if(window.innerWidth < 765){
         filmContainer.style.flexDirection = 'column';
-        filmContainer.style.overflow = 'auto';
-        modalFilm.style.Width = '500px';
+        filmContainer.style.gap = '30px';
         filmContent.style.diplay = 'flex';
-        filmContent.style.flexDirection = 'column';
-        filmContent.style.wrap = 'wrap';
+        filmContent.style.marginTop = '40px';
+        filmContent.style.marginRight = '40px';
 
     }
 
